@@ -1,0 +1,693 @@
+[gd_scene load_steps=37 format=3 uid="uid://b14lso88cwwqy"]
+
+[ext_resource type="PackedScene" uid="uid://dfct1lv2frqk" path="res://Shop.tscn" id="1_bisgb"]
+[ext_resource type="Texture2D" uid="uid://cntiy3sybabj8" path="res://Platform.png" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://03h2uqph5nfi" path="res://label.gd" id="2_7ged1"]
+[ext_resource type="Script" uid="uid://cccrxbqea1wt2" path="res://player.gd" id="2_u44n3"]
+[ext_resource type="Texture2D" uid="uid://do0k3v1acrxc7" path="res://ChatGPT Image Dec 1, 2025, 07_38_38 PM.png" id="2_xkndl"]
+[ext_resource type="Script" uid="uid://cwbkjcpc4p3a6" path="res://sprite_2d.gd" id="4_0mevm"]
+[ext_resource type="Texture2D" uid="uid://cypif3dr608m" path="res://Enemy.png" id="4_sb48q"]
+[ext_resource type="AudioStream" uid="uid://dlf2xqrw7en8" path="res://Game Music - 4.mp3" id="4_t88pq"]
+[ext_resource type="Script" uid="uid://c7nc7leesn8sa" path="res://enemy.gd" id="5_t88pq"]
+[ext_resource type="PackedScene" uid="uid://dvmvsm3dso3sk" path="res://coins.tscn" id="6_yx171"]
+[ext_resource type="Texture2D" uid="uid://cxinmh1p473ln" path="res://Background.png" id="8_joorw"]
+[ext_resource type="Texture2D" uid="uid://fqkss20oomfj" path="res://Coin.png" id="9_2vekm"]
+[ext_resource type="FontFile" uid="uid://bm2iwo3r8po6i" path="res://BoldPixels.ttf" id="10_yx171"]
+[ext_resource type="Script" uid="uid://y27m5mugrv6w" path="res://global.gd" id="11_yhmtn"]
+[ext_resource type="Script" uid="uid://s7mb7wu0qnq0" path="res://enemy_2.gd" id="12_gwjdr"]
+[ext_resource type="Script" uid="uid://b4rnjtm5ffvnf" path="res://enemy_3.gd" id="13_lvtmh"]
+[ext_resource type="Texture2D" uid="uid://bgr6djtiko8sk" path="res://Health/3 Hearts.png" id="14_wuoie"]
+[ext_resource type="Script" uid="uid://daeakxqo4olnp" path="res://3_of_3.gd" id="15_bvhbk"]
+[ext_resource type="Texture2D" uid="uid://ch8nfm70k4ele" path="res://Health/2 Hearts.png" id="16_cpsxm"]
+[ext_resource type="Script" uid="uid://dsnrxxskbqnoc" path="res://2_of_3.gd" id="17_bvhbk"]
+[ext_resource type="Texture2D" uid="uid://blhxd8hwf1dpw" path="res://Health/1 heart.png" id="17_hmewc"]
+[ext_resource type="Texture2D" uid="uid://ddb180xebytfo" path="res://Sword.webp" id="17_hwsgv"]
+[ext_resource type="Texture2D" uid="uid://cwsg5w4uds5ba" path="res://Health/0 Hearts.png" id="18_7ged1"]
+[ext_resource type="Script" uid="uid://bfh7d17s38n50" path="res://sword.gd" id="18_gebyw"]
+[ext_resource type="Script" uid="uid://euxdg5mjlcw" path="res://1_of_3.gd" id="19_cpsxm"]
+[ext_resource type="Script" uid="uid://cv3qvblqy4od0" path="res://0_of_3.gd" id="21_hmewc"]
+[ext_resource type="Texture2D" uid="uid://dfmu7r6gar6ya" path="res://Home Button.png" id="24_w2501"]
+[ext_resource type="Script" uid="uid://djg0tmgvgpq78" path="res://home.gd" id="25_jsoai"]
+[ext_resource type="Script" uid="uid://ceugkxi7i2kes" path="res://enemy_4.gd" id="27_8ktx7"]
+[ext_resource type="AudioStream" uid="uid://bmjwqwkytnh4n" path="res://Error.mp3" id="28_4my3f"]
+[ext_resource type="PackedScene" uid="uid://cghr3ywueyucw" path="res://touch_controls.tscn" id="30_hwsgv"]
+[ext_resource type="FontFile" uid="uid://8uv5qhddqy4d" path="res://BoldPixels.otf" id="31_gebyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb48q"]
+size = Vector2(135.62502, 49.375008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t88pq"]
+size = Vector2(43.5, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvtmh"]
+size = Vector2(189.53076, 53.07582)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsoai"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Shop Bar" parent="." instance=ExtResource("1_bisgb")]
+z_index = 6
+offset_left = -584.0
+offset_top = 229.0
+offset_right = -584.0
+offset_bottom = 229.0
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Game"]
+z_index = 10
+offset_left = 739.0
+offset_top = -208.0
+offset_right = 766.8261
+offset_bottom = -192.0
+scale = Vector2(9.1583, 13.151159)
+theme_override_fonts/font = ExtResource("10_yx171")
+text = "0"
+script = ExtResource("2_7ged1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Label"]
+position = Vector2(-7.53415, 7.9080477)
+scale = Vector2(0.098303676, 0.07191826)
+texture = ExtResource("9_2vekm")
+script = ExtResource("4_0mevm")
+
+[node name="Platform" type="StaticBody2D" parent="Game"]
+position = Vector2(-219, 32)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform2" type="StaticBody2D" parent="Game"]
+position = Vector2(524, 267)
+scale = Vector2(1.6342188, 1.6342188)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform2"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform2"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform3" type="StaticBody2D" parent="Game"]
+position = Vector2(1483, 70)
+scale = Vector2(1.6263989, 1.6263989)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform3"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform3"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Label2" type="Label" parent="Game"]
+z_index = 10
+offset_left = 2877.0
+offset_top = 75.0
+offset_right = 2904.8262
+offset_bottom = 91.0
+scale = Vector2(9.1583, 13.151159)
+theme_override_fonts/font = ExtResource("10_yx171")
+text = "0"
+script = ExtResource("2_7ged1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Label2"]
+position = Vector2(-7.53415, 7.9080477)
+scale = Vector2(0.098303676, 0.07191826)
+texture = ExtResource("9_2vekm")
+script = ExtResource("4_0mevm")
+
+[node name="Platform4" type="StaticBody2D" parent="Game"]
+position = Vector2(3438, 484)
+scale = Vector2(1.6263989, 1.6263989)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform4"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform4"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform5" type="StaticBody2D" parent="Game"]
+position = Vector2(2566, 252)
+scale = Vector2(1.6263989, 1.6263989)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform5"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform5"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform6" type="StaticBody2D" parent="Game"]
+position = Vector2(171, 525)
+scale = Vector2(1.6263989, 1.6263989)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform6"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform6"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform7" type="StaticBody2D" parent="Game"]
+position = Vector2(5431.0005, 105)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform7"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform7"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform8" type="StaticBody2D" parent="Game"]
+position = Vector2(7349.0005, 544)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform8"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform8"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform9" type="StaticBody2D" parent="Game"]
+position = Vector2(8517, 227)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform9"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform9"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform10" type="StaticBody2D" parent="Game"]
+position = Vector2(9679, 955)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform10"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform10"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Label3" type="Label" parent="Game"]
+z_index = 10
+offset_left = 6674.0
+offset_top = 17.0
+offset_right = 6701.826
+offset_bottom = 33.0
+scale = Vector2(9.1583, 13.151159)
+theme_override_fonts/font = ExtResource("10_yx171")
+text = "0"
+script = ExtResource("2_7ged1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Label3"]
+position = Vector2(-7.53415, 7.9080477)
+scale = Vector2(0.098303676, 0.07191826)
+texture = ExtResource("9_2vekm")
+script = ExtResource("4_0mevm")
+
+[node name="Platform11" type="StaticBody2D" parent="Game"]
+position = Vector2(11108, 206.00006)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform11"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform11"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform12" type="StaticBody2D" parent="Game"]
+position = Vector2(6459.0005, 597)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform12"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform12"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Platform13" type="StaticBody2D" parent="Game"]
+position = Vector2(11942, 735.00006)
+scale = Vector2(1.5999999, 1.5999999)
+
+[node name="Collision" type="CollisionShape2D" parent="Game/Platform13"]
+position = Vector2(189.06253, 50.312523)
+shape = SubResource("RectangleShape2D_sb48q")
+
+[node name="Platform_Picture" type="Sprite2D" parent="Game/Platform13"]
+position = Vector2(189.30556, 50.625004)
+scale = Vector2(1.9907405, 1.9907405)
+texture = ExtResource("1_wbfu4")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 5
+position = Vector2(472, 535)
+scale = Vector2(1.3999999, 1.3999999)
+script = ExtResource("2_u44n3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(2.2856903, -2.5714722)
+scale = Vector2(0.073242195, 0.073242195)
+texture = ExtResource("2_xkndl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(2.535675, -2.0714722)
+shape = SubResource("RectangleShape2D_t88pq")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2.1428528, 1.4285583)
+scale = Vector2(0.7142858, 0.7142858)
+limit_left = -195
+limit_top = -178
+limit_right = 12843
+limit_bottom = 1270
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 2.0
+
+[node name="Health" type="Node2D" parent="Player"]
+position = Vector2(2.857145, -40.00001)
+scale = Vector2(0.08571504, 0.08571504)
+
+[node name="3 of 3" type="Sprite2D" parent="Player/Health"]
+z_index = 4
+texture = ExtResource("14_wuoie")
+script = ExtResource("15_bvhbk")
+
+[node name="2 of 3" type="Sprite2D" parent="Player/Health"]
+z_index = 3
+texture = ExtResource("16_cpsxm")
+script = ExtResource("17_bvhbk")
+
+[node name="1 of 3" type="Sprite2D" parent="Player/Health"]
+z_index = 2
+position = Vector2(6.750001, 0)
+scale = Vector2(1.0141658, 1)
+texture = ExtResource("17_hmewc")
+script = ExtResource("19_cpsxm")
+
+[node name="0 of 3" type="Sprite2D" parent="Player/Health"]
+z_index = 1
+position = Vector2(18, -5)
+scale = Vector2(1.0299056, 1)
+texture = ExtResource("18_7ged1")
+script = ExtResource("21_hmewc")
+
+[node name="Sword" type="Sprite2D" parent="Player"]
+position = Vector2(45.714294, -6.428562)
+scale = Vector2(0.19279101, 0.19279101)
+texture = ExtResource("17_hwsgv")
+script = ExtResource("18_gebyw")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Background"]
+z_index = -5
+position = Vector2(866.5001, 475)
+scale = Vector2(9.148868, 9.660714)
+texture = ExtResource("8_joorw")
+
+[node name="Background2" type="Sprite2D" parent="Background"]
+z_index = -5
+position = Vector2(3494, 479)
+scale = Vector2(8.893205, 9.839286)
+texture = ExtResource("8_joorw")
+
+[node name="Background3" type="Sprite2D" parent="Background"]
+z_index = -5
+position = Vector2(6184, 480)
+scale = Vector2(8.893205, 9.839286)
+texture = ExtResource("8_joorw")
+
+[node name="Background4" type="Sprite2D" parent="Background"]
+z_index = -5
+position = Vector2(8784, 489)
+scale = Vector2(8.893205, 9.839286)
+texture = ExtResource("8_joorw")
+
+[node name="Background5" type="Sprite2D" parent="Background"]
+z_index = -5
+position = Vector2(11513, 480.00003)
+scale = Vector2(8.893205, 9.839286)
+texture = ExtResource("8_joorw")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2(4471, 422)
+stream = ExtResource("4_t88pq")
+volume_db = 9.088
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.03589682
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("4_t88pq")
+volume_db = 9.088
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.03589682
+
+[node name="Music3" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2(7265, 799)
+stream = ExtResource("4_t88pq")
+volume_db = 9.088
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.03589682
+
+[node name="Music4" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2(10739, 927)
+stream = ExtResource("4_t88pq")
+volume_db = 9.088
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.03589682
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coins3" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(1816, 115)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(-45, -32.999996)
+scale = Vector2(1.52, 1.52)
+
+[node name="Coins2" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(173, 334)
+scale = Vector2(1.7051908, 1.7051908)
+
+[node name="Coins4" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(623.0001, 181)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins5" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(3056, -43.99997)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins6" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(3708, 602.9999)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins7" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(5014, 994)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins8" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(4680.0005, -46.999878)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins9" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(5702.0005, 624.99994)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins10" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(5748.0005, 188.00009)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins11" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(7639.0005, 625)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins12" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(9980.001, 1039)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins13" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(8891.001, 276.00018)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins14" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(12295.001, 720)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Coins15" parent="Coins" instance=ExtResource("6_yx171")]
+position = Vector2(8494, 915)
+scale = Vector2(1.7293274, 1.7293274)
+
+[node name="Global Variables" type="Node" parent="."]
+script = ExtResource("11_yhmtn")
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(855, 296)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("5_t88pq")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy2" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(-412, -217)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("12_gwjdr")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy2/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy3" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(4080, -110)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy3/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy4" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(9055, 897)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("27_8ktx7")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy4/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy5" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(6212, 862)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy5/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemys"]
+stream = ExtResource("28_4my3f")
+volume_db = 14.913
+
+[node name="Enemy6" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(10858, 90)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy6/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy7" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(7407, -282)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy7/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy8" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(13529, 925)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy8/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy9" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(2146, -703)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy9/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Enemy10" type="Sprite2D" parent="Enemys" node_paths=PackedStringArray("target")]
+position = Vector2(457, 2351)
+scale = Vector2(0.103515625, 0.103515625)
+texture = ExtResource("4_sb48q")
+script = ExtResource("13_lvtmh")
+target = NodePath("../../Player")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy10/Area2D"]
+scale = Vector2(3.6698425, -12.74076)
+shape = SubResource("RectangleShape2D_lvtmh")
+
+[node name="Home Button" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Home" type="Button" parent="Home Button"]
+layout_mode = 0
+offset_left = -169.0
+offset_top = 83.0
+offset_right = -33.0
+offset_bottom = 219.0
+scale = Vector2(0.5200006, 0.5200006)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsoai")
+icon = ExtResource("24_w2501")
+script = ExtResource("25_jsoai")
+
+[node name="Home2" type="Button" parent="Home Button"]
+layout_mode = 0
+offset_left = 2397.9998
+offset_top = 121.0
+offset_right = 2533.9998
+offset_bottom = 257.0
+scale = Vector2(0.5200006, 0.5200006)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsoai")
+icon = ExtResource("24_w2501")
+script = ExtResource("25_jsoai")
+
+[node name="Home3" type="Button" parent="Home Button"]
+layout_mode = 0
+offset_left = 5045.0
+offset_top = 83.00012
+offset_right = 5181.0
+offset_bottom = 219.00012
+scale = Vector2(0.5200006, 0.5200006)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsoai")
+icon = ExtResource("24_w2501")
+script = ExtResource("25_jsoai")
+
+[node name="Home4" type="Button" parent="Home Button"]
+layout_mode = 0
+offset_left = 8362.0
+offset_top = 227.00002
+offset_right = 8498.0
+offset_bottom = 363.0
+scale = Vector2(0.5200006, 0.5200006)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsoai")
+icon = ExtResource("24_w2501")
+script = ExtResource("25_jsoai")
+
+[node name="Shop Bar2" parent="." instance=ExtResource("1_bisgb")]
+z_index = 6
+offset_left = 3054.0
+offset_top = 229.0
+offset_right = 3054.0
+offset_bottom = 229.0
+
+[node name="Joystick" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Touch Controls" parent="Joystick" instance=ExtResource("30_hwsgv")]
+
+[node name="SHOP pointer" type="Label" parent="."]
+offset_left = 9214.0
+offset_top = 91.0
+offset_right = 10204.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("31_gebyw")
+theme_override_font_sizes/font_size = 100
+text = "⬅️ Shop Bar this side!"
+
+[connection signal="body_entered" from="Enemys/Enemy/Area2D" to="Enemys/Enemy" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy2/Area2D" to="Enemys/Enemy2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy3/Area2D" to="Enemys/Enemy3" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy4/Area2D" to="Enemys/Enemy4" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy5/Area2D" to="Enemys/Enemy5" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy6/Area2D" to="Enemys/Enemy6" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy7/Area2D" to="Enemys/Enemy7" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy8/Area2D" to="Enemys/Enemy8" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy9/Area2D" to="Enemys/Enemy9" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemys/Enemy10/Area2D" to="Enemys/Enemy10" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Home Button/Home" to="Home Button/Home" method="_on_pressed"]
+[connection signal="pressed" from="Home Button/Home2" to="Home Button/Home2" method="_on_pressed"]
+[connection signal="pressed" from="Home Button/Home3" to="Home Button/Home3" method="_on_pressed"]
+[connection signal="pressed" from="Home Button/Home4" to="Home Button/Home4" method="_on_pressed"]

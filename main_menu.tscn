@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://yct7wpa2ixwe"]
+
+[ext_resource type="FontFile" uid="uid://8uv5qhddqy4d" path="res://BoldPixels.otf" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://wnibtqun2pej" path="res://main_menu.gd" id="1_glbon"]
+[ext_resource type="Texture2D" uid="uid://do0k3v1acrxc7" path="res://ChatGPT Image Dec 1, 2025, 07_38_38 PM.png" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://cypif3dr608m" path="res://Enemy.png" id="3_jix8l"]
+[ext_resource type="Texture2D" uid="uid://cxinmh1p473ln" path="res://Background.png" id="4_jix8l"]
+[ext_resource type="AudioStream" uid="uid://8u38t5xn26p8" path="res://Game Music 5.mp3" id="6_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://ddb180xebytfo" path="res://Sword.webp" id="7_qe12f"]
+[ext_resource type="Texture2D" uid="uid://bo16q103dy13c" path="res://Sword Shadow.png" id="8_8qtwp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.74968237, 0.77142465, 0.77834785, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_bottom_right = 30
+shadow_size = 3
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_glbon")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(585, 324)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.999985
+offset_top = -3.0000076
+offset_right = 184.99998
+offset_bottom = 19.999992
+scale = Vector2(10.400202, 10.599998)
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "Enemy F ghter"
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 228.0
+offset_right = 741.0
+offset_bottom = 328.0
+theme_override_colors/font_color = Color(0.28484988, 0.28485048, 0.28485003, 1)
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jix8l")
+text = "▶️  Start"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(172, 443)
+rotation = 0.3059425
+scale = Vector2(0.14550781, 0.14550781)
+texture = ExtResource("2_fu7sn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1038, 228.99998)
+rotation = -0.31170127
+scale = Vector2(0.14746092, 0.14746092)
+texture = ExtResource("3_jix8l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(613, 459)
+scale = Vector2(7.915857, 8.476191)
+texture = ExtResource("4_jix8l")
+
+[node name="Label2" type="Label" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = 102.999985
+offset_top = 9.999992
+offset_right = 198.99998
+offset_bottom = 25.999992
+scale = Vector2(10.400202, 10.599998)
+theme_override_colors/font_color = Color(0.4506486, 0.4506482, 0.45064837, 1)
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "Enemy F ghter"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nlkkf")
+autoplay = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(242.99997, 435.99997)
+scale = Vector2(0.40427154, 0.40427154)
+texture = ExtResource("7_qe12f")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(701.00006, 94.67722)
+rotation = -0.7889157
+scale = Vector2(0.430622, 0.42131668)
+texture = ExtResource("7_qe12f")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprite2D5"]
+z_index = -1
+position = Vector2(-0.6281738, 26.9292)
+rotation = 0.005681856
+scale = Vector2(0.22349936, 0.22843534)
+skew = -0.00024294853
+texture = ExtResource("8_8qtwp")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

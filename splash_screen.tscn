@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dadg6h3ind4bt"]
+
+[ext_resource type="Script" uid="uid://bi1twth6ojyff" path="res://splash_screen.gd" id="1_arguk"]
+[ext_resource type="Texture2D" uid="uid://c8gawhttbydv3" path="res://square.png" id="1_ty3ja"]
+[ext_resource type="Texture2D" uid="uid://do0k3v1acrxc7" path="res://ChatGPT Image Dec 1, 2025, 07_38_38 PM.png" id="2_el3v4"]
+[ext_resource type="FontFile" uid="uid://bm2iwo3r8po6i" path="res://BoldPixels.ttf" id="4_74eti"]
+
+[node name="Splash Screen" type="Node2D"]
+script = ExtResource("1_arguk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15357.504, 18565.998)
+scale = Vector2(1037.4196, 650.4017)
+texture = ExtResource("1_ty3ja")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(592, 289)
+scale = Vector2(0.6536851, 0.6536851)
+texture = ExtResource("2_el3v4")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -585.9091
+offset_top = 313.60666
+offset_right = 640.0909
+offset_bottom = 513.6067
+theme_override_fonts/font = ExtResource("4_74eti")
+theme_override_font_sizes/font_size = 200
+text = "Enemy Fighter"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

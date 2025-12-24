@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvnvvh2pw08t"]
+
+[ext_resource type="Texture2D" uid="uid://ctc542xok4h41" path="res://Health/Heart.png" id="1_npomh"]
+
+[node name="Health_Gain" type="Sprite2D"]
+texture = ExtResource("1_npomh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

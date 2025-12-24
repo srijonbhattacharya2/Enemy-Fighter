@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://bix5m7tc3fjxr"]
+
+[ext_resource type="Texture2D" uid="uid://cxinmh1p473ln" path="res://Background.png" id="1_gt22q"]
+[ext_resource type="Script" uid="uid://ddd6fdtd6cgyk" path="res://game_over_screen.gd" id="1_tmhko"]
+[ext_resource type="FontFile" uid="uid://8uv5qhddqy4d" path="res://BoldPixels.otf" id="2_w3hxg"]
+[ext_resource type="Texture2D" uid="uid://dxw1uo07r1ebw" path="res://Restart.png" id="3_l4tlu"]
+[ext_resource type="Texture2D" uid="uid://ddr5g672e7gcn" path="res://Cross.png" id="5_tmhko"]
+[ext_resource type="AudioStream" uid="uid://b01mcv3jxx864" path="res://Game Over.mp3" id="6_tmhko"]
+[ext_resource type="Texture2D" uid="uid://do0k3v1acrxc7" path="res://ChatGPT Image Dec 1, 2025, 07_38_38 PM.png" id="7_0ccdq"]
+[ext_resource type="Texture2D" uid="uid://ddb180xebytfo" path="res://Sword.webp" id="8_akil3"]
+[ext_resource type="Texture2D" uid="uid://cypif3dr608m" path="res://Enemy.png" id="9_3dait"]
+[ext_resource type="Texture2D" uid="uid://cntiy3sybabj8" path="res://Platform.png" id="10_akil3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yv1s"]
+bg_color = Color(0.74968237, 0.77142465, 0.77834785, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_bottom_right = 30
+shadow_size = 3
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmhko"]
+
+[node name="Game Over Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tmhko")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -257.0
+offset_top = -174.0
+offset_right = 2198.0
+offset_bottom = 1258.0
+texture = ExtResource("1_gt22q")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 388.99994
+offset_top = 131.0
+offset_right = 2358.0
+offset_bottom = 582.0
+scale = Vector2(0.9163219, 1.1007737)
+theme_override_fonts/font = ExtResource("2_w3hxg")
+theme_override_font_sizes/font_size = 300
+text = "Game Over"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 412.99994
+offset_top = 151.0
+offset_right = 2382.0
+offset_bottom = 602.0
+scale = Vector2(0.9163219, 1.1007737)
+theme_override_colors/font_color = Color(0.52613807, 0.7435464, 0.5414804, 1)
+theme_override_fonts/font = ExtResource("2_w3hxg")
+theme_override_font_sizes/font_size = 300
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 551.00006
+offset_right = 1185.0
+offset_bottom = 891.00006
+scale = Vector2(0.47956693, 0.47956693)
+theme_override_colors/font_color = Color(0.28484988, 0.28485048, 0.28485003, 1)
+theme_override_fonts/font = ExtResource("2_w3hxg")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yv1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmhko")
+text = "  Restart  "
+icon = ExtResource("3_l4tlu")
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1162.0001
+offset_top = 552.00006
+offset_right = 1980.0001
+offset_bottom = 996.00006
+scale = Vector2(0.36665553, 0.36665553)
+theme_override_colors/font_color = Color(0.28484988, 0.28485048, 0.28485003, 1)
+theme_override_fonts/font = ExtResource("2_w3hxg")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yv1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmhko")
+text = "  Exit  "
+icon = ExtResource("5_tmhko")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(970, 670)
+stream = ExtResource("6_tmhko")
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(316, 911)
+rotation = 0.3059425
+scale = Vector2(0.14550781, 0.14550781)
+texture = ExtResource("7_0ccdq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(450.79785, -192.83887)
+rotation = -0.3059425
+scale = Vector2(2.7783494, 2.7783494)
+texture = ExtResource("8_akil3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1738, 449)
+rotation = -0.31170127
+scale = Vector2(0.14746092, 0.14746092)
+texture = ExtResource("9_3dait")
+
+[node name="Platform_Picture" type="Sprite2D" parent="."]
+position = Vector2(1128.8889, 891)
+scale = Vector2(3.1851847, 3.1851847)
+texture = ExtResource("10_akil3")
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

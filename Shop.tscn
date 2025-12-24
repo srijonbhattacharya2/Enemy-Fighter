@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfct1lv2frqk"]
+
+[ext_resource type="Script" uid="uid://coaqja454uc7h" path="res://shop.gd" id="1_svtxo"]
+[ext_resource type="Texture2D" uid="uid://ddb180xebytfo" path="res://Sword.webp" id="2_7ae35"]
+[ext_resource type="FontFile" uid="uid://8uv5qhddqy4d" path="res://BoldPixels.otf" id="4_c0ofq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f511j"]
+bg_color = Color(0.42312717, 0.5725228, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Shop Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svtxo")
+
+[node name="Sword" type="Sprite2D" parent="."]
+position = Vector2(1832.4758, 73.434814)
+scale = Vector2(0.41666666, 0.41666666)
+texture = ExtResource("2_7ae35")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1760.0
+offset_top = 152.0
+offset_right = 1917.0
+offset_bottom = 369.0
+theme_override_colors/font_color = Color(0.19438517, 0.00014708757, 0.603556, 1)
+theme_override_fonts/font = ExtResource("4_c0ofq")
+theme_override_font_sizes/font_size = 66
+text = "Shop Bar"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Sword Buy" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1788.0
+offset_top = 139.0
+offset_right = 1872.0
+offset_bottom = 188.0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_c0ofq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_f511j")
+text = "Buy"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1851.0
+offset_top = 88.0
+offset_right = 1935.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("4_c0ofq")
+theme_override_font_sizes/font_size = 50
+text = "$10"
+
+[connection signal="pressed" from="Sword Buy" to="." method="_on_sword_buy_pressed"]

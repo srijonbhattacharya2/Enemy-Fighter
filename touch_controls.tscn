@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cghr3ywueyucw"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_1gcqp"]
+[ext_resource type="FontFile" uid="uid://8uv5qhddqy4d" path="res://BoldPixels.otf" id="2_qaoo7"]
+[ext_resource type="Script" uid="uid://piv8jtthytx4" path="res://sword_usage.gd" id="3_ep0mg"]
+[ext_resource type="Texture2D" uid="uid://ddb180xebytfo" path="res://Sword.webp" id="3_ojhyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaoo7"]
+bg_color = Color(0.74968237, 0.77142465, 0.77834785, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_bottom_right = 30
+shadow_size = 3
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ep0mg"]
+
+[node name="Touch Controls" type="CanvasLayer"]
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_1gcqp")]
+custom_minimum_size = Vector2(300, 300)
+offset_left = 1569.0
+offset_top = -354.0
+offset_right = 1869.0
+offset_bottom = -54.0
+pressed_color = Color(1, 1, 1, 1)
+
+[node name="Sword usage" type="Button" parent="."]
+offset_left = 796.00006
+offset_top = 800.0
+offset_right = 2156.7114
+offset_bottom = 1134.0
+scale = Vector2(0.56000125, 0.56000125)
+theme_override_colors/font_color = Color(0.28484988, 0.28485048, 0.28485003, 1)
+theme_override_fonts/font = ExtResource("2_qaoo7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_qaoo7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ep0mg")
+text = "Turn ON sword usage"
+icon = ExtResource("3_ojhyh")
+script = ExtResource("3_ep0mg")
+
+[connection signal="pressed" from="Sword usage" to="Sword usage" method="_on_pressed"]
